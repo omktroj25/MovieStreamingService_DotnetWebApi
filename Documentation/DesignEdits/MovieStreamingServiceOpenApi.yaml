@@ -1,0 +1,938 @@
+openapi: 3.0.3
+info:
+  version: "1.0"
+  title: Movie Streaming Service Api
+tags:
+  - name: AuthenticationController
+  - name: UserController
+  - name: AdminController
+  - name: SubscriptionController
+  - name: MovieController
+paths:
+  /api/auth/login:
+    post:
+      tags:
+        - AuthenticationController
+      summary: Login api for admin and user
+      description: To login to the api using username and password
+      requestBody:
+        description: To send login credentials to the server to validate
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginDto"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TokenResponseDto"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    example: 404
+                  message:
+                    type: string
+                    example: user not found
+                  description:
+                    type: string
+                    example: Check the username. The user must register before login
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - admin
+        - user
+
+  /api/auth/logout:
+    post:
+      tags:
+        - AuthenticationController
+      security:
+        - bearerAuth: []
+      summary: Logout api for admin and user
+      description: To logout by invalidating the jwt token and clearing session data
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: user loggedout Successfully
+                  description:
+                    type: string
+                    example: goto login page to login again
+        "401":
+          $ref: "#/components/responses/401"
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - admin
+        - user
+
+  /api/auth/register:
+    post:
+      tags:
+        - UserController
+      security:
+        - bearerAuth: []
+      summary: Register api for new user registration
+      description: User can create account to access movie streaming service by registering their information
+      requestBody:
+        description: To send profile information to the server to save in the database
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProfileDto"
+      responses:
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  message:
+                    type: string
+                    example: user registered Successfully
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 409
+                  message:
+                    type: string
+                    example: input data conflict
+                  description:
+                    type: string
+                    example: please type the valid username, email, phone ...,
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - user
+
+  /api/profile/{user-id}:
+    put:
+      tags:
+        - UserController
+      security:
+        - bearerAuth: []
+      summary: Admin and user can update user profile using this update profile api
+      description: Update the profile of the user by admin and user
+      parameters:
+        - in: path
+          name: user-id
+          description: Id of the user to update the profile details
+          schema:
+            type: string
+            format: uuid
+          required: true
+      requestBody:
+        description: To send profile information to update in the database
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProfileDto"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: profile updated Successfully
+                  description:
+                    type: string
+                    example: the profile information has been updated in the database
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: user id not found
+                  description:
+                    type: string
+                    example: please type the valid user id
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 409
+                  message:
+                    type: string
+                    example: please type the valid input
+                  description:
+                    type: string
+                    example: please type the valid input email, phone number, payment ...,
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - user
+        - admin
+
+  /api/users:
+    get:
+      tags:
+        - AdminController
+      security:
+        - bearerAuth: []
+      summary: Admin can view the list of user account registered by using this get user api
+      description: To get all user list with their profile information
+      parameters:
+        - in: query
+          name: row-size
+          description: number of user to be returned
+          schema:
+            type: integer
+            default: 5
+          required: false
+        - in: query
+          name: start-index
+          description: cursor position to fetch the user
+          schema:
+            type: integer
+            default: 1
+          required: false
+        - in: query
+          name: sort-order
+          description: order to retrieve the user details
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: asc
+          required: false
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProfileDto"
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - admin
+
+  /api/delete/user/{user-id}:
+    delete:
+      tags:
+        - AdminController
+      security:
+        - bearerAuth: []
+      summary: Admin can delete user by using this delete user api
+      description: Admin can delete user from the database
+      parameters:
+        - in: path
+          name: user-id
+          description: Id of the user to delete
+          schema:
+            type: string
+            format: uuid
+          required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: user deleted Successfully
+                  description:
+                    type: string
+                    example: the selected user information is removed from the database
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: user id not found
+                  description:
+                    type: string
+                    example: No user account found for the given user id. The user account may be already deleted or doesn't exist
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+        x-openapi-router-roles:
+          - admin
+
+  /api/subscriptions:
+    get:
+      tags:
+        - SubscriptionController
+      security:
+        - bearerAuth: []
+      summary: User can view the subscription plan subscribed and admin can view list of subscription plan available
+      description: To view the subscription details according to the login role
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SubscriptionDto"
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - admin
+        - user
+  
+  /api/subscription:
+    post:
+      tags:
+        - SubscriptionController
+      security:
+        - bearerAuth: []
+      summary: Admin can add subscription plan by using this add subscription api
+      description: New subscription plans can be added to the database
+      requestBody:
+        description: To add new subscription plan to the database
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubscriptionDto"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResponseIdDto"
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - admin
+  
+  /api/subscription/{subscription-id}:
+    put:
+      tags:
+        - SubscriptionController
+      security:
+        - bearerAuth: []
+      summary: Admin can update subscription plan by using this subscription update api
+      description: Admin can update subscription information through this api
+      parameters:
+        - in: path
+          name: subscription-id
+          description: Id of the subscription to update the information
+          schema:
+            type: string
+            format: uuid
+          required: true
+      requestBody:
+        description: To send subscription information to update in the database
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubscriptionDto"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: subscription plan updated Successfully
+                  description:
+                    type: string
+                    example: the subscription information has been updated in the database
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: subscription id not found
+                  description:
+                    type: string
+                    example: please type the valid subscription id
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 409
+                  message:
+                    type: string
+                    example: please type the valid input
+                  description:
+                    type: string
+                    example: the input key already exist
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - admin
+
+  /api/delete/subscription/{subscription-id}:
+    delete:
+      tags:
+        - SubscriptionController
+      security:
+        - bearerAuth: []
+      summary: Admin can delete subscription by using this delete subscription api
+      description: Admin can delete user from the database
+      parameters:
+        - in: path
+          name: subscription-id
+          description: Id of the subscription to delete
+          schema:
+            type: string
+            format: uuid
+          required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: subscription plan deleted Successfully
+                  description:
+                    type: string
+                    example: the selected subscription information is removed from the database
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: subscription id not found
+                  description:
+                    type: string
+                    example: No subscription plan found for the given subscription id. The subscription plan may be already deleted or doesn't exist
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+        x-openapi-router-roles:
+          - admin
+
+  /api/movies:
+    get:
+      tags:
+        - MovieController
+      security:
+        - bearerAuth: []
+      summary: User can view list of movie according to his subscription plan and admin can view all movies in the database
+      description: To get all movie list with their details
+      parameters:
+        - in: query
+          name: row-size
+          description: number of movie to be returned
+          schema:
+            type: integer
+            default: 5
+          required: false
+        - in: query
+          name: start-index
+          description: cursor position to fetch the movie
+          schema:
+            type: integer
+            default: 1
+          required: false
+        - in: query
+          name: sort-order
+          description: order to retrieve the movie details
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: asc
+          required: false
+        - in: query
+          name: title
+          description: retrieve the movie based on the title
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: genere
+          description: retrieve the movie based on the genere
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: director
+          description: retrieve the movie based on the director
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: actor
+          description: retrieve the movie based on the actor
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: rating
+          description: order to retrieve the movie details
+          schema:
+            type: string
+          required: false   
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MovieDto"
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - admin
+        - user
+  
+  /api/movie:
+    post:
+      tags:
+        - MovieController
+      security:
+        - bearerAuth: []
+      summary: Admin can add movie using this add movie api
+      description: New movie details can be added to the database
+      requestBody:
+        description: To add new movie details to the database
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MovieDto"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResponseIdDto"
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - admin
+  
+  /api/movie/{movie-id}:
+    put:
+      tags:
+        - MovieController
+      security:
+        - bearerAuth: []
+      summary: Admin can update movie details using this update movie api
+      description: Admin can update movie details using this api
+      parameters:
+        - in: path
+          name: movie-id
+          description: Id of the movie to update the information
+          schema:
+            type: string
+            format: uuid
+          required: true
+      requestBody:
+        description: To send movie details to update in the database
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MovieDto"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: movie details updated Successfully
+                  description:
+                    type: string
+                    example: the movie details has been updated in the database
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: movie id not found
+                  description:
+                    type: string
+                    example: please type the valid movie id
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 409
+                  message:
+                    type: string
+                    example: the movie title already exist
+                  description:
+                    type: string
+                    example: please type the valid movie title
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+      x-openapi-router-roles:
+        - admin
+
+  /api/delete/movie/{movie-id}:
+    delete:
+      tags:
+        - MovieController
+      security:
+        - bearerAuth: []
+      summary: Admin can delete movie by using this delete movie api
+      description: Admin can remove movie details from the database
+      parameters:
+        - in: path
+          name: movie-id
+          description: Id of the movie to delete
+          schema:
+            type: string
+            format: uuid
+          required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: movie details deleted Successfully
+                  description:
+                    type: string
+                    example: the selected movie detail is removed from the database
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: movie id not found
+                  description:
+                    type: string
+                    example: None of the movie found for the given movie id. The movie may be already deleted or doesn't exist
+        "400":
+          $ref: "#/components/responses/400"
+        "500":
+          $ref: "#/components/responses/500"
+        x-openapi-router-roles:
+          - admin
+
+
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    ResponseDto:
+      type: object
+      properties:
+        status_code:
+          type: integer
+        message:
+          type: string
+        description:
+          type: string
+        error:
+          type: object
+
+    ResponseIdDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        message:
+          type: string
+
+    LoginDto:
+      type: object
+      properties:
+        user_name:
+          type: string
+        password:
+          type: string
+
+    TokenResponseDto:
+      type: object
+      properties:
+        token_type:
+          type: string
+          example: Bearer
+        access_token:
+          type: string
+
+    SubscriptionDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        key:
+          type: string
+        description:
+          type: string
+
+    MovieDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        genere:
+          type: string
+        director:
+          type: string
+        actor:
+          type: string
+        rating:
+          type: string
+          pattern: ^(?:[0-5](?:\.[0-9])?|5(?:\.0)?)$
+        subscription_plan:
+          type: string
+        subscription_id:
+          type: string
+          format: uuid
+
+    ProfileDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        user_name:
+          type: string
+        password:
+          type: string
+        confirm_password:
+          type: string
+        email_address:
+          type: string
+          pattern: ^[^@\s]+@[^@\s]+\.[^@\s]+$
+          example: user@domain.com
+        phone_number:
+          type: string
+          pattern: ^\+?[0-9]{8,}$
+          example: +91 9876054321
+        subscription_plan:
+          type: string
+        subscription_id:
+          type: string
+          format: uuid
+        PaymentDto:
+          type: array
+          items:
+            type: object
+            properties:
+              payment_type:
+                type: string
+                enum:
+                  - CREDIT/CARD
+                  - DEBIT/CARD
+                  - UPI
+              card_number:
+                type: string
+                pattern: ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35[0-9]{3})[0-9]{11})$
+              card_holder_name:
+                type: string
+              expire_date:
+                type: string
+                pattern: ^(0[1-9]|1[0-2])\/?([0-9]{2})$
+              upi_id:
+                type: string
+                pattern: ^[\w.-]+@[\w.-]+$
+                example: user@okbank
+              upi_app:
+                type: string
+            oneOf:
+              - properties:
+                  payment_type:
+                    enum:
+                      - CREDIT/CARD
+                      - DEBIT/CARD
+                required:
+                  - card_number
+                  - card_holder_name
+                  - expire_date
+              - properties:
+                  payment_type:
+                    enum:
+                      - UPI
+                required:
+                  - upi_id
+                  - upi_app
+
+  responses:
+    400:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseDto"
+          example:
+            code: 400
+            message: Bad request
+            description: Invalid input format. Please type the valid input format
+
+    401:
+      description: Unauthorized access
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseDto"
+          example:
+            code: 401
+            message: Unauthorized user
+            descritption: Check username and password
+
+    500:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseDto"
+          example:
+            code: 500
+            message: Internal server error
+            description: An unexpected error occurred while processing the request
