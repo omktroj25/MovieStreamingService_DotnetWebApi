@@ -1,0 +1,1 @@
+2023-05-29 12:03:13.7411|INFO|MovieStreamingServiceApi.Controller.AuthenticationController|Login api called
