@@ -1,0 +1,17 @@
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\Entity.AssemblyInfo.cs
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\Entity.csproj.CoreCompileInputs.cache
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\bin\Debug\net6.0\Entity.deps.json
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\bin\Debug\net6.0\Entity.dll
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\bin\Debug\net6.0\Entity.pdb
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\bin\Debug\net6.0\Exception.dll
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\bin\Debug\net6.0\Exception.pdb
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\Entity.csproj.CopyComplete
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\Entity.dll
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\refint\Entity.dll
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\Entity.pdb
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\ref\Entity.dll
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\bin\Debug\net6.0\Entity.runtimeconfig.json
+C:\Files\Project\Project2\SourceCode\Trail\MovieStreamingServiceAssignment\Entity\obj\Debug\net6.0\Entity.genruntimeconfig.cache
