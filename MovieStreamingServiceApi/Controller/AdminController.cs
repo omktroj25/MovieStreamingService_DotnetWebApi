@@ -20,7 +20,7 @@ namespace MovieStreamingServiceApi.Controller
     [ApiController]
     public class AdminController : ControllerBase
     { 
-        private readonly AdminService adminService;
+        private readonly IAdminService adminService;
         private readonly IConfiguration _config;
         private readonly ApiDbContext _context;
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();

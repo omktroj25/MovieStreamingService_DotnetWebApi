@@ -12,6 +12,7 @@ using AutoMapper;
 using Entity.Data;
 using NLog;
 using Service;
+using Contract.IService;
 
 namespace MovieStreamingServiceApi.Controller
 { 
@@ -20,7 +21,7 @@ namespace MovieStreamingServiceApi.Controller
     public class AuthenticationController : ControllerBase
     {
         // private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly AuthenticationService authenticationService;
+        private readonly IAuthenticationService authenticationService;
         private readonly IConfiguration _config;
         private readonly ApiDbContext _context;
         private readonly IMapper _mapper;

@@ -14,6 +14,7 @@ using AutoMapper;
 using MovieStreamingServiceApi;
 using MovieStreamingServiceApi.Controller;
 using Microsoft.Extensions.DependencyInjection;
+using Entity;
 
 namespace MovieStreamingServiceApiTest
 {

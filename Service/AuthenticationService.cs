@@ -17,9 +17,9 @@ using NLog;
 using Exception;
 
 namespace Service;
-public class AuthenticationService
+public class AuthenticationService : IAuthenticationService
 {
-    private readonly AuthenticationRepository authenticationRepository;
+    private readonly IAuthenticationRepository authenticationRepository;
     private readonly IConfiguration _config;
     private readonly ApiDbContext _context;
     private readonly IMapper _mapper;

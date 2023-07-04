@@ -1,7 +1,7 @@
 using Entity.Dto;
 
 namespace Contract.IService;
-public class IAuthenticationService
+public interface IAuthenticationService
 {
-
+    TokenResponseDto GenerateToken(LoginDto loginDto);
 }

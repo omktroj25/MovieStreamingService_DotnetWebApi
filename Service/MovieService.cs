@@ -11,10 +11,10 @@ using Exception;
 using NLog;
 
 namespace Service;
-public class MovieService
+public class MovieService : IMovieService
 {
 
-    private readonly MovieRepository movieRepository;
+    private readonly IMovieRepository movieRepository;
     private readonly IConfiguration _config;
     private readonly ApiDbContext _context;
     private static readonly Logger _logger = LogManager.GetCurrentClassLogger();

@@ -11,10 +11,10 @@ using Exception;
 using NLog;
 
 namespace Service;
-public class SubscriptionService
+public class SubscriptionService : ISubscriptionService
 {
 
-    private readonly SubscriptionRepository subscriptionRepository;
+    private readonly ISubscriptionRepository subscriptionRepository;
     private readonly IConfiguration _config;
     private readonly ApiDbContext _context;
     private static readonly Logger _logger = LogManager.GetCurrentClassLogger();

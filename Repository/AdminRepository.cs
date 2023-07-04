@@ -8,7 +8,7 @@ using Entity.Model;
 using NLog;
 
 namespace Repository;
-public class AdminRepository
+public class AdminRepository : IAdminRepository
 {
     private IConfiguration _config;
     private ApiDbContext _context;

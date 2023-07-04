@@ -13,10 +13,10 @@ using System.Text;
 using NLog;
 
 namespace Service;
-public class UserService
+public class UserService : IUserService
 {
 
-    private readonly UserRepository userRepository;
+    private readonly IUserRepository userRepository;
     private readonly IConfiguration _config;
     private readonly ApiDbContext _context;
     private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
@@ -72,7 +72,7 @@ public class UserService
     }
 
     //Hash password to store in database
-    public string ComputeHash(string input)
+    private string ComputeHash(string input)
     {
         using (SHA256 sha256 = SHA256.Create())
         {

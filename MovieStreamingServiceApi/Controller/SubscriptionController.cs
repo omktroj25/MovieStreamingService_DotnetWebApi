@@ -12,6 +12,7 @@ using Entity.Data;
 using AutoMapper;
 using Repository;
 using NLog;
+using Contract.IService;
 
 namespace MovieStreamingServiceApi.Controller
 { 
@@ -20,7 +21,7 @@ namespace MovieStreamingServiceApi.Controller
     public class SubscriptionController : ControllerBase
     { 
 
-        private readonly SubscriptionService subscriptionService;
+        private readonly ISubscriptionService subscriptionService;
         private readonly IConfiguration _config;
         private readonly ApiDbContext _context;
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();

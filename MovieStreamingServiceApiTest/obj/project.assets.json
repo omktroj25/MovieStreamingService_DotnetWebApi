@@ -2993,6 +2993,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper": "12.0.1",
           "Exception": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.5",
           "Microsoft.EntityFrameworkCore.Relational": "7.0.5",
@@ -9180,19 +9181,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\OmprakashKannan\\.nuget\\packages\\": {}
+    "C:\\Users\\ompra\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Github_Propel\\omprakash\\MovieStreamingServiceApiTest\\MovieStreamingServiceApiTest.csproj",
+      "projectUniqueName": "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\MovieStreamingServiceApiTest\\MovieStreamingServiceApiTest.csproj",
       "projectName": "MovieStreamingServiceApiTest",
-      "projectPath": "c:\\Github_Propel\\omprakash\\MovieStreamingServiceApiTest\\MovieStreamingServiceApiTest.csproj",
-      "packagesPath": "C:\\Users\\OmprakashKannan\\.nuget\\packages\\",
-      "outputPath": "c:\\Github_Propel\\omprakash\\MovieStreamingServiceApiTest\\obj\\",
+      "projectPath": "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\MovieStreamingServiceApiTest\\MovieStreamingServiceApiTest.csproj",
+      "packagesPath": "C:\\Users\\ompra\\.nuget\\packages\\",
+      "outputPath": "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\MovieStreamingServiceApiTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\OmprakashKannan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ompra\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -9204,8 +9205,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Github_Propel\\omprakash\\MovieStreamingServiceApi\\MovieStreamingServiceApi.csproj": {
-              "projectPath": "c:\\Github_Propel\\omprakash\\MovieStreamingServiceApi\\MovieStreamingServiceApi.csproj"
+            "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\MovieStreamingServiceApi\\MovieStreamingServiceApi.csproj": {
+              "projectPath": "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\MovieStreamingServiceApi\\MovieStreamingServiceApi.csproj"
             }
           }
         }
@@ -9261,7 +9262,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.411\\RuntimeIdentifierGraph.json"
       }
     }
   }

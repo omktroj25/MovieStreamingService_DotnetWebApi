@@ -8,7 +8,7 @@ using Entity.Model;
 using NLog;
 
 namespace Repository;
-public class SubscriptionRepository
+public class SubscriptionRepository : ISubscriptionRepository
 {
 
     private IConfiguration _config;

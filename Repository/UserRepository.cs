@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using NLog;
 
 namespace Repository;
-public class UserRepository
+public class UserRepository : IUserRepository
 {
 
     private IConfiguration _config;

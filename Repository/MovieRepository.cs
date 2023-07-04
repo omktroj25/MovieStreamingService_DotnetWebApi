@@ -9,7 +9,7 @@ using Entity.Model;
 using NLog;
 
 namespace Repository;
-public class MovieRepository
+public class MovieRepository : IMovieRepository
 {
 
     private IConfiguration _config;

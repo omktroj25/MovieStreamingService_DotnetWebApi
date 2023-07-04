@@ -15,6 +15,7 @@ using System.Text;
 using Exception;
 using Entity.Dto;
 using Service;
+using Entity;
 using Repository;
 using Contract.IService;
 using Contract.IRepository;

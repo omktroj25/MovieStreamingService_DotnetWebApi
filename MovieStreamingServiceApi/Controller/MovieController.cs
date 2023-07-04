@@ -22,7 +22,7 @@ namespace MovieStreamingServiceApi.Controller
     public class MovieController : ControllerBase
     { 
 
-        private readonly MovieService movieService;
+        private readonly IMovieService movieService;
         private readonly IConfiguration _config;
         private readonly ApiDbContext _context;
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();

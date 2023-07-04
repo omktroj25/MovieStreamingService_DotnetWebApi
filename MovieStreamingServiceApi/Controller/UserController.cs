@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Entity.Dto;
 using Entity.Data;
 using Service;
+using Contract.IService;
 using Repository;
 using AutoMapper;
 using NLog;
@@ -20,7 +21,7 @@ namespace MovieStreamingServiceApi.Controller
     public class UserController : ControllerBase
     {
 
-        private readonly UserService userService;
+        private readonly IUserService userService;
         private readonly IConfiguration _config;
         private readonly ApiDbContext _context;
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();

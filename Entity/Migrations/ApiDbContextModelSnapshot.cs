@@ -145,243 +145,243 @@ namespace Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c38622fd-37bd-4af4-80eb-9f42814f9192"),
+                            Id = new Guid("518e04b1-043c-4829-b823-8efcbe347c69"),
                             Actor = "Sally Hawkins",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5598),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3304),
                             Director = "Guillermo del Toro",
                             Genere = "Fantasy",
                             IsActive = true,
                             Rating = 4.2m,
-                            SubscriptionId = new Guid("6b61a787-b20d-48ad-aa97-39d8b2551f3c"),
+                            SubscriptionId = new Guid("7ec4efca-0a55-4bc1-827d-a7692a293e4a"),
                             Title = "The Shape of Water",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5598)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3304)
                         },
                         new
                         {
-                            Id = new Guid("26678ae1-0948-4566-9861-310cab588897"),
+                            Id = new Guid("5c87f473-a7c4-4eee-bc17-e6048d7fafff"),
                             Actor = "Mahershala Ali",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5615),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3310),
                             Director = "Barry Jenkins",
                             Genere = "Drama",
                             IsActive = true,
                             Rating = 4.1m,
-                            SubscriptionId = new Guid("6b61a787-b20d-48ad-aa97-39d8b2551f3c"),
+                            SubscriptionId = new Guid("7ec4efca-0a55-4bc1-827d-a7692a293e4a"),
                             Title = "Moonlight",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5616)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3310)
                         },
                         new
                         {
-                            Id = new Guid("0634fa71-593f-44fc-8ed3-6c48546a5fc3"),
+                            Id = new Guid("beb3361c-43b4-4611-875e-fa2296a78ed8"),
                             Actor = "Michael Keaton",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5618),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3312),
                             Director = "Tom McCarthy",
                             Genere = "Drama",
                             IsActive = true,
                             Rating = 4.4m,
-                            SubscriptionId = new Guid("6b61a787-b20d-48ad-aa97-39d8b2551f3c"),
+                            SubscriptionId = new Guid("7ec4efca-0a55-4bc1-827d-a7692a293e4a"),
                             Title = "Spotlight",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5618)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3312)
                         },
                         new
                         {
-                            Id = new Guid("d2ace484-c584-440d-9980-145cbd405a11"),
+                            Id = new Guid("ac26b8aa-f0de-4ca6-859a-62b9b07be0d9"),
                             Actor = "Song Kang Ho",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5628),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3314),
                             Director = "Bong Joon Ho",
                             Genere = "Thriller",
                             IsActive = true,
                             Rating = 4.3m,
-                            SubscriptionId = new Guid("6b61a787-b20d-48ad-aa97-39d8b2551f3c"),
+                            SubscriptionId = new Guid("7ec4efca-0a55-4bc1-827d-a7692a293e4a"),
                             Title = "Parasite",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5629)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3315)
                         },
                         new
                         {
-                            Id = new Guid("4a66d7c0-1617-4363-9b9d-3e27c03d3a12"),
+                            Id = new Guid("d461743d-4664-41c4-80c3-239a276f851d"),
                             Actor = "Elijah Wood",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5631),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3320),
                             Director = "Peter Jackson",
                             Genere = "Fantasy",
                             IsActive = true,
                             Rating = 4.5m,
-                            SubscriptionId = new Guid("eae8a2ee-2c30-471a-8f08-310d1400573b"),
+                            SubscriptionId = new Guid("c486ca23-b288-478c-973a-de75595d6b37"),
                             Title = "The Lord of the Rings: The Return of the King",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5631)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3320)
                         },
                         new
                         {
-                            Id = new Guid("16159777-2ce0-4fd0-b85d-b364538c60f4"),
+                            Id = new Guid("9ac4c728-ff33-4a52-8a8e-d835e4217e21"),
                             Actor = "Marlon Brando",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5633),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3322),
                             Director = "Francis Ford Coppola",
                             Genere = "Crime",
                             IsActive = true,
                             Rating = 4.7m,
-                            SubscriptionId = new Guid("eae8a2ee-2c30-471a-8f08-310d1400573b"),
+                            SubscriptionId = new Guid("c486ca23-b288-478c-973a-de75595d6b37"),
                             Title = "The Godfather",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5634)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3322)
                         },
                         new
                         {
-                            Id = new Guid("3401c340-c1af-4387-a520-f389bf489623"),
+                            Id = new Guid("fca2786d-d18a-4e35-9259-a7f5e85f6bbc"),
                             Actor = "Clark Gable",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5636),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3324),
                             Director = "Victor Fleming",
                             Genere = "Drama",
                             IsActive = true,
                             Rating = 4.2m,
-                            SubscriptionId = new Guid("eae8a2ee-2c30-471a-8f08-310d1400573b"),
+                            SubscriptionId = new Guid("c486ca23-b288-478c-973a-de75595d6b37"),
                             Title = "Gone with the Wind",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5636)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3324)
                         },
                         new
                         {
-                            Id = new Guid("6198bdca-56fa-4d28-9af8-913c4c098b38"),
+                            Id = new Guid("acf2ce5e-b799-4fe0-9c1a-d67bcb1e15d4"),
                             Actor = "Liam Neeson",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5638),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3326),
                             Director = "Steven Spielberg",
                             Genere = "Biography",
                             IsActive = true,
                             Rating = 4.6m,
-                            SubscriptionId = new Guid("eae8a2ee-2c30-471a-8f08-310d1400573b"),
+                            SubscriptionId = new Guid("c486ca23-b288-478c-973a-de75595d6b37"),
                             Title = "Schindler's List",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5639)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3326)
                         },
                         new
                         {
-                            Id = new Guid("25c82962-a3cf-436e-9a2c-f08f88f44280"),
+                            Id = new Guid("03ba24d5-8bb0-44b5-bb9b-1ec7749023ca"),
                             Actor = "Humphrey Bogart",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5641),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3328),
                             Director = "Michael Curtiz",
                             Genere = "Drama",
                             IsActive = true,
                             Rating = 4.4m,
-                            SubscriptionId = new Guid("4b554483-edaa-4b49-9ea7-31ec22c7a4e7"),
+                            SubscriptionId = new Guid("e88f6a6d-7a3d-434e-b4ba-d61f6c38b52c"),
                             Title = "Casablanca",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5641)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3329)
                         },
                         new
                         {
-                            Id = new Guid("fc3af630-2577-4588-b5a0-b17f56d85e8c"),
+                            Id = new Guid("67a4dcd3-8f12-4759-b7ff-5237dacf1760"),
                             Actor = "Leonardo DiCaprio",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5643),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3330),
                             Director = "Martin Scorsese",
                             Genere = "Crime",
                             IsActive = true,
                             Rating = 4.5m,
-                            SubscriptionId = new Guid("4b554483-edaa-4b49-9ea7-31ec22c7a4e7"),
+                            SubscriptionId = new Guid("e88f6a6d-7a3d-434e-b4ba-d61f6c38b52c"),
                             Title = "The Departed",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5643)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3330)
                         },
                         new
                         {
-                            Id = new Guid("7c951dd5-48b6-4d18-8d7e-a3054afad587"),
+                            Id = new Guid("78d99698-ea37-4e51-a176-4355082fcff8"),
                             Actor = "Anthony Hopkins",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5645),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3332),
                             Director = "Jonathan Demme",
                             Genere = "Thriller",
                             IsActive = true,
                             Rating = 4.4m,
-                            SubscriptionId = new Guid("4b554483-edaa-4b49-9ea7-31ec22c7a4e7"),
+                            SubscriptionId = new Guid("e88f6a6d-7a3d-434e-b4ba-d61f6c38b52c"),
                             Title = "The Silence of the Lambs",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5646)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3332)
                         },
                         new
                         {
-                            Id = new Guid("edc05d1f-10ea-4512-b899-7b32429ed6a8"),
+                            Id = new Guid("221398e0-9e2d-4322-bc5d-daba7765c9cd"),
                             Actor = "Michael Keaton",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5651),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3334),
                             Director = "Alejandro González Iñárritu",
                             Genere = "Drama",
                             IsActive = true,
                             Rating = 4.2m,
-                            SubscriptionId = new Guid("4b554483-edaa-4b49-9ea7-31ec22c7a4e7"),
+                            SubscriptionId = new Guid("e88f6a6d-7a3d-434e-b4ba-d61f6c38b52c"),
                             Title = "Birdman",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5651)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3335)
                         },
                         new
                         {
-                            Id = new Guid("95ff5d50-f49d-4988-aa18-b0a9e079b3fd"),
+                            Id = new Guid("e16371c4-0184-4b41-b740-de95248c5960"),
                             Actor = "Chiwetel Ejiofor",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5653),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3339),
                             Director = "Steve McQueen",
                             Genere = "Drama",
                             IsActive = true,
                             Rating = 4.3m,
-                            SubscriptionId = new Guid("a99388f0-7111-4d76-babb-e572cd200c37"),
+                            SubscriptionId = new Guid("c5d19446-4c0f-450b-936a-b998c8c4e438"),
                             Title = "12 Years a Slave",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5653)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3339)
                         },
                         new
                         {
-                            Id = new Guid("73378ae5-c944-43c1-9790-969cba68e9dc"),
+                            Id = new Guid("6cfbfeb6-6361-40cb-9af2-d149849c675a"),
                             Actor = "Javier Bardem",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5655),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3341),
                             Director = "Joel Coen, Ethan Coen",
                             Genere = "Thriller",
                             IsActive = true,
                             Rating = 4.5m,
-                            SubscriptionId = new Guid("a99388f0-7111-4d76-babb-e572cd200c37"),
+                            SubscriptionId = new Guid("c5d19446-4c0f-450b-936a-b998c8c4e438"),
                             Title = "No Country for Old Men",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5656)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3341)
                         },
                         new
                         {
-                            Id = new Guid("c6d61e65-ad4e-4c04-93f3-9cdd2547da1c"),
+                            Id = new Guid("69cab019-baf0-4d0d-a4d8-b48b0ca2f50d"),
                             Actor = "Colin Firth",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5658),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3342),
                             Director = "Tom Hooper",
                             Genere = "Drama",
                             IsActive = true,
                             Rating = 4.1m,
-                            SubscriptionId = new Guid("a99388f0-7111-4d76-babb-e572cd200c37"),
+                            SubscriptionId = new Guid("c5d19446-4c0f-450b-936a-b998c8c4e438"),
                             Title = "The King's Speech",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5658)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3343)
                         },
                         new
                         {
-                            Id = new Guid("136ffdc7-70a6-4fb1-8ee3-8c695c0e803b"),
+                            Id = new Guid("a61f7287-91d2-4c93-b4d3-115cb2a0f6bd"),
                             Actor = "Russell Crowe",
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5660),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3344),
                             Director = "Ron Howard",
                             Genere = "Biography",
                             IsActive = true,
                             Rating = 4.3m,
-                            SubscriptionId = new Guid("a99388f0-7111-4d76-babb-e572cd200c37"),
+                            SubscriptionId = new Guid("c5d19446-4c0f-450b-936a-b998c8c4e438"),
                             Title = "A Beautiful Mind",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5660)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3344)
                         });
                 });
 
@@ -483,47 +483,47 @@ namespace Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6b61a787-b20d-48ad-aa97-39d8b2551f3c"),
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5242),
+                            Id = new Guid("7ec4efca-0a55-4bc1-827d-a7692a293e4a"),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3286),
                             Description = "This plan offers standard definition (SD) streaming on one device at a time. It's a cost-effective option for individuals or budget-conscious users",
                             IsActive = true,
                             Key = "BASIC",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5243)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3286)
                         },
                         new
                         {
-                            Id = new Guid("eae8a2ee-2c30-471a-8f08-310d1400573b"),
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5246),
+                            Id = new Guid("c486ca23-b288-478c-973a-de75595d6b37"),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3289),
                             Description = "This plan provides high definition (HD) streaming on up to two devices simultaneously. It is suitable for users who prefer better video quality and want to share their account with family members",
                             IsActive = true,
                             Key = "STANDARD",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5246)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3289)
                         },
                         new
                         {
-                            Id = new Guid("4b554483-edaa-4b49-9ea7-31ec22c7a4e7"),
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5521),
+                            Id = new Guid("e88f6a6d-7a3d-434e-b4ba-d61f6c38b52c"),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3291),
                             Description = "This plan offers Ultra HD (4K) streaming on up to four devices at the same time. It is ideal for users with large households or those who desire the best video quality available",
                             IsActive = true,
                             Key = "PREMIUM",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5523)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3291)
                         },
                         new
                         {
-                            Id = new Guid("a99388f0-7111-4d76-babb-e572cd200c37"),
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5525),
+                            Id = new Guid("c5d19446-4c0f-450b-936a-b998c8c4e438"),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3292),
                             Description = "The free plan offers limited access to the streaming site's content library",
                             IsActive = true,
                             Key = "FREE",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5526)
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3292)
                         });
                 });
 
@@ -630,26 +630,26 @@ namespace Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5051),
+                            Id = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3174),
                             IsActive = true,
                             Password = "/3vZexp3id3Sd1Ei/WgX8xc2ctqfgCzuxX8oQyW/WJ8=",
                             Role = "Admin",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5055),
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3176),
                             UserName = "AdminUser"
                         },
                         new
                         {
-                            Id = new Guid("6a451953-a671-40fd-8ff6-537e824b7615"),
-                            CreatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            CreatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5065),
+                            Id = new Guid("391c8da9-8465-49b2-a5ee-68990aa49f62"),
+                            CreatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            CreatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3183),
                             IsActive = true,
                             Password = "dM0p8PMqmscp69xac484T6OErIqk5WM4qDtV+MzVGdY=",
                             Role = "Admin",
-                            UpdatedBy = new Guid("ed87a888-ca9c-493d-9b50-e18bf61da782"),
-                            UpdatedOn = new DateTime(2023, 5, 26, 11, 3, 38, 914, DateTimeKind.Utc).AddTicks(5065),
+                            UpdatedBy = new Guid("135b327b-497f-4a2a-a6dc-6c70dcf8d6dc"),
+                            UpdatedOn = new DateTime(2023, 7, 3, 20, 27, 31, 328, DateTimeKind.Utc).AddTicks(3183),
                             UserName = "Propel"
                         });
                 });

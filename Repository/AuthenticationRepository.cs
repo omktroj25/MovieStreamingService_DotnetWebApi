@@ -3,10 +3,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Entity.Data;
 using Entity.Model;
+using Contract.IRepository;
 using NLog;
 
 namespace Repository;
-public class AuthenticationRepository
+public class AuthenticationRepository : IAuthenticationRepository
 {
 
     private IConfiguration _config;

@@ -1,7 +1,7 @@
-using Entity.Dto;
+using Entity.Model;
 
 namespace Contract.IRepository;
-public class IAuthenticationRepository
+public interface IAuthenticationRepository
 {
-
+    User? GetUserByUsername(string username);
 }

@@ -11,9 +11,9 @@ using Entity.Model;
 using NLog;
 
 namespace Service;
-public class AdminService
+public class AdminService : IAdminService
 {
-    private readonly AdminRepository adminRepository;
+    private readonly IAdminRepository adminRepository;
     private readonly IConfiguration _config;
     private readonly ApiDbContext _context;
     private static readonly Logger _logger = LogManager.GetCurrentClassLogger();

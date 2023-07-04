@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Github_Propel\\omprakash\\Exception\\Exception.csproj": {}
+    "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\Exception\\Exception.csproj": {}
   },
   "projects": {
-    "c:\\Github_Propel\\omprakash\\Exception\\Exception.csproj": {
+    "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\Exception\\Exception.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Github_Propel\\omprakash\\Exception\\Exception.csproj",
+        "projectUniqueName": "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\Exception\\Exception.csproj",
         "projectName": "Exception",
-        "projectPath": "c:\\Github_Propel\\omprakash\\Exception\\Exception.csproj",
-        "packagesPath": "C:\\Users\\OmprakashKannan\\.nuget\\packages\\",
-        "outputPath": "c:\\Github_Propel\\omprakash\\Exception\\obj\\",
+        "projectPath": "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\Exception\\Exception.csproj",
+        "packagesPath": "C:\\Users\\ompra\\.nuget\\packages\\",
+        "outputPath": "C:\\GitProject\\MovieStreamingService_DotnetWebApi\\Exception\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\OmprakashKannan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ompra\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.411\\RuntimeIdentifierGraph.json"
         }
       }
     }
