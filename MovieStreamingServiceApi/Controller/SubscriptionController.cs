@@ -53,7 +53,8 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 404, type: typeof(ResponseDto), description: "Not found")]
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult DeleteSubscriptionApi([FromRoute(Name ="subscription-id")][Required]Guid? subscriptionId)
-        { 
+        {
+            _logger.Info("Delete subscription api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             return Ok(subscriptionService.DeleteSubscriptionById(subscriptionId, userId));
         }
@@ -74,6 +75,7 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult GetSubscriptionApi([FromQuery]int rowSize = 5, [FromQuery]int startIndex = 0, [FromQuery]string? sortOrder = "asc")
         {
+            _logger.Info("Get subscription api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             string role = User.Claims.FirstOrDefault(r => r.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")!.Value;
             return Ok(subscriptionService.GetSubscriptionDetails(role, userId, rowSize, startIndex, sortOrder!));
@@ -95,7 +97,8 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 400, type: typeof(ResponseDto), description: "Bad request")]
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult AddSubscriptionApi([FromBody]SubscriptionDto subscriptionDto)
-        { 
+        {
+            _logger.Info("Add subscription api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             return CreatedAtAction(nameof(AddSubscriptionApi),subscriptionService.AddNewSubscription(subscriptionDto,userId));
         }
@@ -121,7 +124,8 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 409, type: typeof(ResponseDto), description: "Conflict")]
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult UpdateSubscriptionApi([FromRoute(Name ="subscription-id")][Required]Guid? subscriptionId, [FromBody]SubscriptionDto subscriptionDto)
-        { 
+        {
+            _logger.Info("Update subscription api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             return Ok(subscriptionService.UpdateSubscriptionById(subscriptionId,subscriptionDto,userId));
         }

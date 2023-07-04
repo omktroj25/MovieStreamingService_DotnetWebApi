@@ -33,16 +33,20 @@ public class UserService : IUserService
     //Validate input
     public void ValidateProfileDto(ProfileDto profileDto)
     {
+        _logger.Info("User input validation begins");
         if(userRepository.GetUserByUsername(profileDto.UserName!) != null)
         {
+            _logger.Warn("User name already exists");
             throw new BaseCustomException(409, "User name already exists", "Username already taken. Please choose a different username");
         }
         if(userRepository.ValidatePhoneConflict(profileDto.PhoneNumber!) == true)
         {
+            _logger.Warn("Phone number already exists");
             throw new BaseCustomException(409, "Phone number already exists", "Phone number already taken. Please choose a different phone number");
         }
         if(userRepository.ValidateEmailConflict(profileDto.EmailAddress!) == true)
         {
+            _logger.Warn("Email address already exists");
             throw new BaseCustomException(409, "Email address already exists", "Email id already taken. Please choose a different email address");
         }
         foreach( ProfileDtoPaymentDto payment in profileDto.PaymentDto!)
@@ -51,6 +55,7 @@ public class UserService : IUserService
             {
                 if(userRepository.ValidateUpiId(payment.UpiId))
                 {
+                    _logger.Warn("Upi id already exist");
                     throw new BaseCustomException(409, "Upi id already exist", "Please type the new upi id");
                 }
             }
@@ -58,6 +63,7 @@ public class UserService : IUserService
             {
                 if(userRepository.ValidateCardNumber(payment.CardNumber))
                 {
+                    _logger.Warn("Card number already exist");
                     throw new BaseCustomException(409, "Card number already exist", "Please type the new card number");
                 }
             }
@@ -65,6 +71,7 @@ public class UserService : IUserService
         Guid? subscriptionId = userRepository.GetSubscriptionIdByKey(profileDto.SubscriptionPlan);
         if (subscriptionId == null)
         {
+            _logger.Warn("Subscription plan not found");
             throw new BaseCustomException(404, "Subscription plan not found", "Please choose a different subscription plan");
         }
         profileDto.SubscriptionId = (Guid)subscriptionId;
@@ -74,6 +81,7 @@ public class UserService : IUserService
     //Hash password to store in database
     private string ComputeHash(string input)
     {
+        _logger.Info("Hashing begns {0}",input);
         using (SHA256 sha256 = SHA256.Create())
         {
             byte[] inputBytes = Encoding.ASCII.GetBytes(input);
@@ -87,6 +95,7 @@ public class UserService : IUserService
     {
         if(profileDto.Password != profileDto.ConfirmPassword)
         {
+            _logger.Warn("password and confirm password doesn't match");
             throw new BaseCustomException(400, "password and confirm password doesn't match", "Please check the input");
         }
         Guid userId = Guid.NewGuid();
@@ -101,8 +110,7 @@ public class UserService : IUserService
         userRepository.CreateUser(user, profile);
         int upicount = 1, cardcount = 1;
         foreach( ProfileDtoPaymentDto payment in profileDto.PaymentDto!)
-        {
-            
+        { 
             if(payment.PaymentType == "UPI")
             {
                 if(payment.UpiId != null && payment.UpiApp != null && upicount ==1 )
@@ -131,6 +139,7 @@ public class UserService : IUserService
             }
             else
             {
+                _logger.Warn("payment method is empty");
                 throw new BaseCustomException(400, "payment method is empty", "Please fill the payment method");
             }
         }
@@ -140,12 +149,14 @@ public class UserService : IUserService
             Id = userId,
             Message = "User registered successfully. Go to login page for login"
         };
+        _logger.Info("User registered successfully");
         return responseIdDto;
     }
 
     //To select which user id to use
     private Guid SelectUserId(Guid userId, Guid? usersId, string role)
     {
+        _logger.Info("Selecting the user id to update according to the role");
         if(role == "Admin" && usersId == null)
         {
             throw new BaseCustomException(400, "Admin user have to give user id", "Please give user id to update details");
@@ -167,10 +178,12 @@ public class UserService : IUserService
         User? user = userRepository.GetUserByUserId(tempId);
         if(user == null)
         {
+            _logger.Info("User id not found");
             throw new BaseCustomException(404, "User id not found", "Please give valid user id to update details");
         }
         if(user.Role == "Admin")
         {
+            _logger.Info("Admin account cant be updated");
             throw new BaseCustomException(400, "Admin account cant be updated", "Please give valid user id to update details");
         }
         Entity.Model.Profile profile = userRepository.GetProfileDetailsByUserId(tempId);
@@ -180,6 +193,7 @@ public class UserService : IUserService
         profileDto.Password = ComputeHash(profileDto.Password!);
         ValidateProfileDto(profileDto);
 
+        _logger.Info("Updating the details from the dto to the model");
         user.UserName = profileDto.UserName;
         user.Password = profileDto.Password;
         user.UpdatedBy = userId;
@@ -224,6 +238,7 @@ public class UserService : IUserService
             Message = "User details updated successfully",
             Description = "The user informations are updated in the database"
         };
+        _logger.Info("User details updated successfully");
         return responseDto;
     }
 

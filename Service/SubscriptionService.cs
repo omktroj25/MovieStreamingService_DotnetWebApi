@@ -34,10 +34,12 @@ public class SubscriptionService : ISubscriptionService
         Subscription? subscription = subscriptionRepository.GetSubscriptionDetailsById(subscriptionId);
         if(subscription == null)
         {
+            _logger.Warn("Subscription id not found");
             throw new BaseCustomException(404, "Subscription id not found", "Please give the valid subscription id");
         }
         else if(subscription.Key.ToUpper() == "FREE")
         {
+            _logger.Warn("Free plan cannot be deleted");
             throw new BaseCustomException(400, "Free plan cannot be deleted", "Please give the valid subscription id");
         }
         List<Movie> movies = subscriptionRepository.GetMovieDetailsBySubscriptionId(subscriptionId);
@@ -47,6 +49,7 @@ public class SubscriptionService : ISubscriptionService
         subscription.IsActive = false;
         subscription.UpdatedBy = userId;
         subscription.UpdatedOn = DateTime.UtcNow;
+        _logger.Info("Status of the subscription was changed to false");
 
         subscriptionRepository.SaveMovie(updatedMovies);
         subscriptionRepository.SaveSubscription(subscription);
@@ -56,6 +59,7 @@ public class SubscriptionService : ISubscriptionService
             Message = "Subscription plan deleted successfully",
             Description = "The selected subscription is removed from the database"
         };
+        _logger.Info("Subscription plan deleted successfully");
         return responseDto;
     }
 
@@ -64,6 +68,7 @@ public class SubscriptionService : ISubscriptionService
         List<SubscriptionDto> subscriptionDto = new List<SubscriptionDto>();
         if(role == "Admin")
         {
+            _logger.Info("role = {0}",role);
             List<Subscription> subscription = subscriptionRepository.GetAllSubscriptionDetails(rowSize, startIndex, sortOrder);
             foreach(Subscription oneSubscription in subscription)
             {
@@ -73,10 +78,12 @@ public class SubscriptionService : ISubscriptionService
         }
         else
         {
+            _logger.Info("role = {0}",role);
             Subscription subscription = subscriptionRepository.GetSubscriptionDetailsById(subscriptionRepository.GetSubscriptionIdByUserId(userId))!;
             SubscriptionDto  dto = _mapper.Map<SubscriptionDto>(subscription);
             subscriptionDto.Add(dto);
         }
+        _logger.Info("All subscription details fetched successfully");
         return subscriptionDto;
     }
 
@@ -91,6 +98,7 @@ public class SubscriptionService : ISubscriptionService
         subscriptionDto.Key = subscriptionDto.Key.ToUpper();
         if (subscriptionRepository.GetSubscriptionIdByKey(subscriptionDto.Key) != null)
         {
+            _logger.Warn("Subscription plan already exist");
             throw new BaseCustomException(409, "Subscription plan already exist", "Subscription plan already taken. Please choose a different subscription plan");
         }
         Subscription subscription = _mapper.Map<Subscription>(subscriptionDto);
@@ -100,6 +108,7 @@ public class SubscriptionService : ISubscriptionService
             Id = subscriptionId,
             Message = "New subscription plan created successfully",
         };
+        _logger.Info("New subscription plan created successfully");
         return responseIdDto;
     }
 
@@ -109,14 +118,17 @@ public class SubscriptionService : ISubscriptionService
         Subscription? subscription = subscriptionRepository.GetSubscriptionDetailsById(subscriptionId);
         if(subscription == null)
         {
+            _logger.Warn("Subscription id not found");
             throw new BaseCustomException(404, "Subscription id not found", "Please give the valid subscription id");
         }
         else if(subscription.Key.ToUpper() == "FREE")
         {
+            _logger.Warn("Free plan cannot be updated");
             throw new BaseCustomException(400, "Free plan cannot be updated", "Please give the valid subscription id");
         }
         if (subscriptionRepository.GetSubscriptionIdByKey(subscriptionDto.Key) != null)
         {
+            _logger.Warn("Subscripton plan already exist");
             throw new BaseCustomException(409, "Subscription plan already exist", "Please choose a different subscription plan");
         }
         
@@ -132,6 +144,7 @@ public class SubscriptionService : ISubscriptionService
             Message = "Subscription plan updated successfully",
             Description = "The selected subscription is updated in the database"
         };
+        _logger.Info("Subscription plan updated successfully");
         return responseDto;
     }
 

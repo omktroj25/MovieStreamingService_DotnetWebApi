@@ -40,6 +40,7 @@ public class AuthenticationService : IAuthenticationService
     {
         User user = ValidateUser(loginDto);
 
+        _logger.Info("JWT token generation begins");
         SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_config["Jwt:Key"]!));
         SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
@@ -55,12 +56,14 @@ public class AuthenticationService : IAuthenticationService
             signingCredentials: credentials);
 
         string tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+        _logger.Info("JWT token generated successfully");
 
         TokenResponseDto tokenResponseDto = new TokenResponseDto
         {
             TokenType = "Bearer Token",
             AccessToken = tokenString,
         };
+        _logger.Info("{0}",tokenResponseDto);
 
         return tokenResponseDto;
     }
@@ -68,22 +71,27 @@ public class AuthenticationService : IAuthenticationService
     //Validate user name and password
     public User ValidateUser(LoginDto loginDto)
     {
+        _logger.Info("Input validation begins");
         string hashedPasswordEntered = ComputeHash(loginDto.Password!);
         User? user = authenticationRepository.GetUserByUsername(loginDto.UserName!);
         if (user == null)
         {
+            _logger.Warn("User not found in the database");
             throw new BaseCustomException(401, "Unauthorized access", "Invalid user name. Please check your login details and try again");
         }
         if (loginDto.UserName == user.UserName && user.Password == hashedPasswordEntered)
         {
+            _logger.Info("Input validation completed");
             return user;
         }
+        _logger.Warn("User not found in the database");
         throw new BaseCustomException(401, "Unauthorized access", "Invalid password. Please check your login details and try again");
     }
 
     //Hash the input password to validate
     public string ComputeHash(string input)
     {
+        _logger.Info("Hashing the password {0}",input);
         using (SHA256 sha256 = SHA256.Create())
         {
             byte[] inputBytes = Encoding.ASCII.GetBytes(input);

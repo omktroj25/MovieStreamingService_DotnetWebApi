@@ -29,23 +29,28 @@ public class AdminService : IAdminService
 
     public ResponseDto DeleteUserByUserId(Guid usrId, string role, Guid usersId)
     {
+        _logger.Info("Checking user role");
         Guid userId;
         if(role == "User")
         {
+            _logger.Info("role = {0}",role);
             userId = usrId;
         }
         else
         {
+            _logger.Info("role = {0}",role);
             userId = usersId;
         }
 
         User? user = adminRepository.GetUserByUserId(userId);
         if (user == null)
         {
+            _logger.Warn("User not found in the database");
             throw new BaseCustomException(404, "User id not found", "Please give valid user id to update details");
         }
         else if(user.Role == "Admin")
         {
+            _logger.Warn("Admin account cannot be deleted");
             throw new BaseCustomException(400, "Admin account cannot be deleted", "Please give the valid user id to delete");
         }
         Entity.Model.Profile profile = adminRepository.GetProfileDetailsByUserId(userId);
@@ -71,6 +76,7 @@ public class AdminService : IAdminService
             cardPayment.UpdatedOn = DateTime.UtcNow;
         }
 
+        _logger.Info("Setting the status of the given user id details to false");
         adminRepository.SaveUpdate(user, profile, upiPayment, cardPayment);
         ResponseDto responseDto = new ResponseDto()
         {
@@ -78,6 +84,7 @@ public class AdminService : IAdminService
             Message = "User details deleted successfully",
             Description = "The user informations are deleted from the database"
         };
+        _logger.Info("User deleted successfully");
         return responseDto;
     }
 
@@ -85,12 +92,15 @@ public class AdminService : IAdminService
     public List<ProfileDto> GetAllUser(int rowSize, int startIndex, string? sortOrder, Guid userId, string role)
     {
         List<User> users=new List<User>();
+        _logger.Info("Checking the role of the user");
         if(role == "Admin")
         {
+            _logger.Info("role = {0}",role);
             users = adminRepository.GetUsers(rowSize, startIndex, sortOrder!);
         }
         else
         {
+            _logger.Info("role = {0}",role);
             users.Add(adminRepository.GetUserByUserId(userId)!);
         }
         List<ProfileDto> profileDto = new List<ProfileDto>();
@@ -99,12 +109,14 @@ public class AdminService : IAdminService
             ProfileDto dto = AssignToDto(user);
             profileDto.Add(dto);
         }
+        _logger.Info("All details where retrieved and assigned to the dto to display");
         return profileDto;
     }
 
     //Assign user details to the dto
     public ProfileDto AssignToDto(User user)
     {
+        _logger.Info("Assigning the user details to the dto for {0}",user.UserName);
         ProfileDto dto = new ProfileDto();
         Entity.Model.Profile profile = adminRepository.GetProfileDetailsByUserId(user.Id);
         UpiPayment? upiPayment = adminRepository.GetUpiPaymentDetailsByUserId(user.Id);

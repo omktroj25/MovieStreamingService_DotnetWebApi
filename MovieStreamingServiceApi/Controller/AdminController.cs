@@ -54,6 +54,7 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult DeleteUserApi([FromRoute(Name ="user-id")][Required]Guid usersId)
         { 
+            _logger.Info("Delete user api called");
             Guid usrId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             string role = User.Claims.FirstOrDefault(r => r.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")!.Value;
             return Ok(adminService.DeleteUserByUserId(usrId, role, usersId));
@@ -78,6 +79,7 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult GetUserApi([FromQuery]int rowSize = 5, [FromQuery]int startIndex = 1, [FromQuery]string? sortOrder = "asc")
         {
+            _logger.Info("Get user api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             string role = User.Claims.FirstOrDefault(r => r.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")!.Value;
             return Ok(adminService.GetAllUser(rowSize, startIndex, sortOrder,userId,role));

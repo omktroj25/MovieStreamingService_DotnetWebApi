@@ -25,6 +25,7 @@ public class AuthenticationRepository : IAuthenticationRepository
     //Get user details by using user name
     public User? GetUserByUsername(string username)
     {
+        _logger.Info("Getting user details by username {0}",username);
         return _context.Users.FirstOrDefault(u => u.UserName == username && u.IsActive == true);
     }
     

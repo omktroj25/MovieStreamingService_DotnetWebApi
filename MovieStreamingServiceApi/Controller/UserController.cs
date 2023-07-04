@@ -53,6 +53,7 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult UserRegisterApi([FromBody]ProfileDto profileDto)
         {
+            _logger.Info("User register api called");
             return CreatedAtAction(nameof(UserRegisterApi), userService.RegisterUser(profileDto));
         }
 
@@ -77,7 +78,8 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 409, type: typeof(ResponseDto), description: "Conflict")]
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult UpdateUserApi([FromRoute(Name ="user-id")]Guid? usersId, [FromBody]ProfileDto profileDto)
-        { 
+        {
+            _logger.Info("Update user api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             string role = User.Claims.FirstOrDefault(r => r.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")!.Value;
             return Ok(userService.UpdateUserDetails(userId, usersId, role, profileDto));

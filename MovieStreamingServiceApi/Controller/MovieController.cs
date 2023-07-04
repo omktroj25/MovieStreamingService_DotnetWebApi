@@ -21,7 +21,6 @@ namespace MovieStreamingServiceApi.Controller
     [ApiController]
     public class MovieController : ControllerBase
     { 
-
         private readonly IMovieService movieService;
         private readonly IConfiguration _config;
         private readonly ApiDbContext _context;
@@ -55,6 +54,7 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult DeleteMovieApi([FromRoute(Name ="movie-id")][Required]Guid? movieId)
         { 
+            _logger.Info("Delete movie api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             return Ok(movieService.DeleteMovieById(movieId,userId));
         }
@@ -80,7 +80,8 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 409, type: typeof(ResponseDto), description: "Conflict")]
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult UpdateMovieApi([FromRoute(Name ="movie-id")][Required]Guid? movieId, [FromBody]MovieDto movieDto)
-        { 
+        {
+            _logger.Info("Update movie api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             return Ok(movieService.UpdateMovieById(movieId, movieDto, userId));
         }
@@ -102,6 +103,7 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult AddMovieApi([FromBody]MovieDto movieDto)
         { 
+            _logger.Info("Add movie api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             return CreatedAtAction(nameof(AddMovieApi),movieService.AddNewMovie(movieDto, userId));
         }
@@ -130,6 +132,7 @@ namespace MovieStreamingServiceApi.Controller
         [SwaggerResponse(statusCode: 500, type: typeof(ResponseDto), description: "Internal server error")]
         public virtual IActionResult GetMoviesApi([FromQuery]string? title=null, [FromQuery]string? genere=null, [FromQuery]string? director=null, [FromQuery]string? actor=null, [FromQuery]Decimal rating = 0,[FromQuery]int rowSize = 10, [FromQuery]int startIndex = 1, [FromQuery]string? sortBy = "title",[FromQuery]string? sortOrder = "asc")
         {
+            _logger.Info("Get movies api called");
             Guid userId = new Guid(User.Claims.FirstOrDefault(u => u.Type == "NameId")!.Value);
             string role = User.Claims.FirstOrDefault(r => r.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")!.Value;
             return Ok(movieService.GetMovieDetails(role, userId, title, genere, director, actor, rating, rowSize, startIndex, sortBy, sortOrder));
